@@ -15,7 +15,13 @@ class ViewController: UIViewController {
         updateViewFromModel()
     }
     
-    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    var numberOfPairsOfCards: Int {
+        get {
+            return (cardButtons.count + 1) / 2
+        }
+    }
+    
+    lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flips: \(flipCount)"
